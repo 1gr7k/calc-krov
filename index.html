@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora - Krov Motorworks</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                url("fundo.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(4px);
+            padding: 25px;
+            border-radius: 14px;
+            width: 320px;
+            box-shadow: 0 0 25px rgba(128, 0, 255, 0.45);
+            color: #fff;
+            text-align: center;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #c38bff;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            margin-bottom: 15px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #7a2cff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #5e1fd1;
+        }
+
+        .resultado {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #e6d4ff;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <!-- LOGO KROV -->
+        <img src="logo-krov.png" alt="Krov Motorworks" class="logo">
+
+        <h1>Calculadora de Serviços</h1>
+
+        <input type="number" id="valor" placeholder="Valor do serviço (R$)">
+
+        <button onclick="calcular()">Aplicar +40%</button>
+
+        <div class="resultado" id="resultado"></div>
+
+        <div class="info">
+            Margem padrão: 40%
+        </div>
+    </div>
+
+    <script>
+        function calcular() {
+            let valor = document.getElementById("valor").value;
+
+            if (valor === "" || valor <= 0) {
+                document.getElementById("resultado").innerText =
+                    "Digite um valor válido";
+                return;
+            }
+
+            let total = valor * 1.4;
+
+            document.getElementById("resultado").innerText =
+                "Valor final: R$ " + total.toFixed(2).replace(".", ",");
+        }
+    </script>
+
+</body>
+</html>

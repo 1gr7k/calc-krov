@@ -1,129 +1,66 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Calculadora - Krov Motorworks</title>
+<h2>Calculadora KROV</h2>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<div class="lista">
+  <input type="number" class="valor" placeholder="Valor 1">
+  <input type="number" class="valor" placeholder="Valor 2">
+  <input type="number" class="valor" placeholder="Valor 3">
+  <input type="number" class="valor" placeholder="Valor 4">
+  <input type="number" class="valor" placeholder="Valor 5">
+  <input type="number" class="valor" placeholder="Valor 6">
+  <input type="number" class="valor" placeholder="Valor 7">
+  <input type="number" class="valor" placeholder="Valor 8">
+  <input type="number" class="valor" placeholder="Valor 9">
+  <input type="number" class="valor" placeholder="Valor 10">
+</div>
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background:
-                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-                url("fundo.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+<button onclick="calcular()">Calcular</button>
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+<h3>Total</h3>
+<p id="resultado">0,000</p>
 
-        .card {
-            background: rgba(0, 0, 0, 0.78);
-            backdrop-filter: blur(4px);
-            padding: 25px;
-            border-radius: 14px;
-            width: 320px;
-            box-shadow: 0 0 25px rgba(128, 0, 255, 0.45);
-            color: #fff;
-            text-align: center;
-        }
 
-        .logo {
-            width: 150px;
-            margin-bottom: 15px;
-        }
+<script>
+function calcular() {
+  let inputs = document.querySelectorAll(".valor");
+  let total = 0;
 
-        h1 {
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: #c38bff;
-            letter-spacing: 1px;
-        }
+  inputs.forEach(input => {
+    let valor = parseFloat(input.value);
+    if (!isNaN(valor)) {
+      total += valor * 1.4; // aplica +40% direto
+    }
+  });
 
-        input {
-            width: 100%;
-            padding: 12px;
-            border-radius: 6px;
-            border: none;
-            font-size: 16px;
-            margin-bottom: 15px;
-            outline: none;
-        }
+  document.getElementById("resultado").innerText =
+    total.toLocaleString("pt-BR", {
+      minimumFractionDigits: 3,
+      maximumFractionDigits: 3
+    });
+}
+</script>
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #7a2cff;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
 
-        button:hover {
-            background: #5e1fd1;
-        }
+<style>
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
-        .resultado {
-            margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
-            color: #e6d4ff;
-        }
+.lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 300px;
+  margin: auto;
+}
 
-        .info {
-            margin-top: 10px;
-            font-size: 12px;
-            color: #aaa;
-        }
-    </style>
-</head>
-<body>
+input {
+  padding: 8px;
+}
 
-    <div class="card">
-
-        <!-- LOGO KROV -->
-        <img src="logo-krov.png" alt="Krov Motorworks" class="logo">
-
-        <h1>Calculadora de Serviços</h1>
-
-        <input type="number" id="valor" placeholder="Valor do serviço (R$)">
-
-        <button onclick="calcular()">Aplicar +40%</button>
-
-        <div class="resultado" id="resultado"></div>
-
-        <div class="info">
-            Margem padrão: 40%
-        </div>
-    </div>
-
-    <script>
-        function calcular() {
-            let valor = document.getElementById("valor").value;
-
-            if (valor === "" || valor <= 0) {
-                document.getElementById("resultado").innerText =
-                    "Digite um valor válido";
-                return;
-            }
-
-            let total = valor * 1.4;
-
-            document.getElementById("resultado").innerText =
-                "Valor final: R$ " + total.toFixed(2).replace(".", ",");
-        }
-    </script>
-
-</body>
-</html>
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+</style>

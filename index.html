@@ -1,66 +1,35 @@
-<h2>Calculadora KROV</h2>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Krov</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div class="lista">
-  <input type="number" class="valor" placeholder="Valor 1">
-  <input type="number" class="valor" placeholder="Valor 2">
-  <input type="number" class="valor" placeholder="Valor 3">
-  <input type="number" class="valor" placeholder="Valor 4">
-  <input type="number" class="valor" placeholder="Valor 5">
-  <input type="number" class="valor" placeholder="Valor 6">
-  <input type="number" class="valor" placeholder="Valor 7">
-  <input type="number" class="valor" placeholder="Valor 8">
-  <input type="number" class="valor" placeholder="Valor 9">
-  <input type="number" class="valor" placeholder="Valor 10">
-</div>
+    <div class="container">
 
-<button onclick="calcular()">Calcular</button>
+        <h1>Calculadora Krov</h1>
 
-<h3>Total</h3>
-<p id="resultado">0,000</p>
+        <div class="inputs">
+            <input type="number" placeholder="Valor 1">
+            <input type="number" placeholder="Valor 2">
+            <input type="number" placeholder="Valor 3">
+            <input type="number" placeholder="Valor 4">
+            <input type="number" placeholder="Valor 5">
+            <input type="number" placeholder="Valor 6">
+            <input type="number" placeholder="Valor 7">
+            <input type="number" placeholder="Valor 8">
+            <input type="number" placeholder="Valor 9">
+            <input type="number" placeholder="Valor 10">
+        </div>
 
+        <button>Calcular</button>
 
-<script>
-function calcular() {
-  let inputs = document.querySelectorAll(".valor");
-  let total = 0;
+        <div class="resultado">
+            Resultado final: <strong>70.000</strong>
+        </div>
+    </div>
 
-  inputs.forEach(input => {
-    let valor = parseFloat(input.value);
-    if (!isNaN(valor)) {
-      total += valor * 1.4; // aplica +40% direto
-    }
-  });
-
-  document.getElementById("resultado").innerText =
-    total.toLocaleString("pt-BR", {
-      minimumFractionDigits: 3,
-      maximumFractionDigits: 3
-    });
-}
-</script>
-
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-.lista {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  max-width: 300px;
-  margin: auto;
-}
-
-input {
-  padding: 8px;
-}
-
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-</style>
+</body>
+</html>

@@ -1,10 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     min-height: 100vh;
 
-    background: url("./assets/fundo-krov.png") no-repeat center center fixed;
+    background-image: url("./assets/fundo-krov.png");
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     font-family: Arial, sans-serif;
     color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* camada escura por cima da imagem */
+.container {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 12px;
+    width: 360px;
+    text-align: center;
+}
+
+.logo {
+    max-width: 180px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+input {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background: #7a2cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5e20c7;
+}
+
+.resultado {
+    margin-top: 15px;
+    font-size: 18px;
 }
